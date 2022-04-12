@@ -463,14 +463,32 @@ public class RedNBlack <T extends Comparable<T>, V> {
 
     }
 
-    public void test(Node n){ // рекурсивная проверка
+    String v = "";
+
+    public String test(Node n){ // рекурсивная проверка
 
         if (n != NIL) {
+            test(n.left);
+
+            v += n.key.toString();
+
+            test(n.right);
+        }
+
+        return v;
+
+    }
+
+    public void testSOUT(Node n){
+
+        if (n != NIL){
+
             test(n.left);
 
             System.out.println(n.key);
 
             test(n.right);
+
         }
 
     }
