@@ -5,6 +5,12 @@ public class RedNBlack <T extends Comparable<T>, V> {
     private final Node NIL = new Node(null, null , BLK);
     private Node main = NIL;
 
+    public Node getMain(){
+
+        return  main;
+
+    }
+
     private class Node {
         Node left = NIL;
         Node right = NIL;
@@ -229,6 +235,12 @@ public class RedNBlack <T extends Comparable<T>, V> {
 
         while (n.root.color == RD) {
 
+            if (n.root.root == null){
+
+                return;
+
+            }
+
             if (n.root == n.root.root.left) {
 
                 Node o1 = n.root.root.right;
@@ -261,7 +273,11 @@ public class RedNBlack <T extends Comparable<T>, V> {
             } else {// case1.2
 
                 Node y = n.root.root.left;
+                if (y == null){
 
+                    return;
+
+                }
                 if (y.color == RD) {// case1.2.1
 
                     n.root.color = BLK;
